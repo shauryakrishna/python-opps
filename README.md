@@ -1,4 +1,4 @@
-##Object-oriented programming (OOP)
+# Object-oriented programming (OOP)
 is a method of structuring a program by bundling related properties and behaviors into individual objects. In this tutorial, you’ll learn the basics of object-oriented programming in Python.
 
 Conceptually, objects are like the components of a system. Think of a program as a factory assembly line of sorts. At each step of the assembly line, a system component processes some material, ultimately transforming raw material into a finished product.
@@ -10,14 +10,14 @@ In this tutorial, you’ll learn how to:
  -Use classes to create new objects
  -Model systems with class inheritance
 
- What Is Object-Oriented Programming in Python?
+ ## What Is Object-Oriented Programming in Python?
 Object-oriented programming is a programming paradigm that provides a means of structuring programs so that properties and behaviors are bundled into individual objects.
 
 For example, an object could represent a person with properties like a name, age, and address and behaviors such as walking, talking, breathing, and running. Or it could represent an email with properties like a recipient list, subject, and body and behaviors like adding attachments and sending.
 
 Put another way, object-oriented programming is an approach for modeling concrete, real-world things, like cars, as well as relations between things, like companies and employees or students and teachers. OOP models real-world entities as software objects that have some data associated with them and can perform certain operations.
 The key takeaway is that objects are at the center of object-oriented programming in Python. In other programming paradigms, objects only represent the data. In OOP, they additionally inform the overall structure of the program.
-How Do You Define a Class in Python?
+## How Do You Define a Class in Python?
 In Python, you define a class by using the class keyword followed by a name and a colon. Then you use .__init__() to declare which attributes each instance of the class should have:
 
     class Employee:
@@ -42,7 +42,7 @@ There are a number of issues with this approach.
 First, it can make larger code files more difficult to manage. If you reference kirk[0] several lines away from where you declared the kirk list, will you remember that the element with index 0 is the employee’s name?
 
 Second, it can introduce errors if employees don’t have the same number of elements in their respective lists. In the mccoy list above, the age is missing, so mccoy[1] will return "Chief Medical Officer" instead of Dr. McCoy’s age.
-Classes vs Instances#
+### Classes vs Instances#
 Classes allow you to create user-defined data structures. Classes define functions called methods, which identify the behaviors and actions that an object created from the class can perform with its data.
 
 In this tutorial, you’ll create a Dog class that stores some information about the characteristics and behaviors that an individual dog can have.
@@ -54,7 +54,7 @@ While the class is the blueprint, an instance is an object that’s built from a
 Put another way, a class is like a form or questionnaire. An instance is like a form that you’ve filled out with information. Just like many people can fill out the same form with their own unique information, you can create many instances from a single class.
 
 A great way to make this type of code more manageable and more maintainable is to use classes.
-Class Definition
+## Class Definition
 You start all class definitions with the class keyword, then add the name of the class and a colon. Python will consider any code that you indent below the class definition as part of the class’s body.
 
 Here’s an example of a Dog class:
@@ -80,7 +80,7 @@ Update the Dog class with an .__init__() method that creates .name and .age attr
         self.name = name
         self.age = age
 
-        Make sure that you indent the .__init__() method’s signature by four spaces, and the body of the method by eight spaces. This indentation is vitally important. It tells Python that the .__init__() method belongs to the Dog class.
+Make sure that you indent the .__init__() method’s signature by four spaces, and the body of the method by eight spaces. This indentation is vitally important. It tells Python that the .__init__() method belongs to the Dog class.
 
 In the body of .__init__(), there are two statements using the self variable:
 
@@ -105,7 +105,7 @@ You define class attributes directly beneath the first line of the class name an
 Use class attributes to define properties that should have the same value for every class instance. Use instance attributes for properties that vary from one instance to another.
 
 Now that you have a Dog class, it’s time to create some dogs!
-How Do You Instantiate a Class in Python?
+## How Do You Instantiate a Class in Python?
 Creating a new object from a class is called instantiating a class. You can create a new object by typing the name of the class, followed by opening and closing parentheses:
 
     >>> class Dog:
@@ -131,3 +131,20 @@ To see this another way, type the following:
     False
 
  In this code, you create two new Dog objects and assign them to the variables a and b. When you compare a and b using the == operator, the result is False. Even though a and b are both instances of the Dog class, they represent two distinct objects in memory.
+
+## Class and Instance Attributes
+Now create a new Dog class with a class attribute called .species and two instance attributes called .name and .age:
+
+    >>> class Dog:
+    ...     species = "Canis familiaris"
+    ...     def __init__(self, name, age):
+    ...         self.name = name
+    ...         self.age = age
+    ...
+
+   To instantiate this Dog class, you need to provide values for name and age. If you don’t, then Python raises a TypeError:
+
+    >>> Dog()
+    Traceback (most recent call last):
+    ...
+    TypeError: __init__() missing 2 required positional arguments: 'name' and 'age'
